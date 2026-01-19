@@ -1,5 +1,17 @@
 <div>
-  <router-outlet></router-outlet>
+  <!-- Environment Config Display (for testing) -->
+  <div style="position: fixed; top: 0; left: 0; right: 0; background: #1e40af; color: white; padding: 12px; z-index: 9999; font-family: monospace; font-size: 13px; box-shadow: 0 2px 8px rgba(0,0,0,0.3);">
+    <div style="max-width: 1200px; margin: 0 auto;">
+      <strong style="color: #fbbf24;">🔧 Environment Config (Platform Test):</strong>
+      <span style="margin-left: 15px;">Production: <strong>{{ environment.production }}</strong></span>
+      <span style="margin-left: 15px;">API: <strong>{{ environment.apiUrl }}</strong></span>
+      <span style="margin-left: 15px;">Version: <strong>{{ environment.appVersion }}</strong></span>
+      <span style="margin-left: 15px;">Analytics: <strong>{{ environment.enableAnalytics }}</strong></span>
+    </div>
+  </div>
+  <div style="padding-top: 50px;">
+    <router-outlet></router-outlet>
+  </div>
   <app-responsive-helper></app-responsive-helper>
   <ngx-sonner-toaster [theme]="themeService.isDark ? 'dark' : 'light'"></ngx-sonner-toaster>
 </div>
