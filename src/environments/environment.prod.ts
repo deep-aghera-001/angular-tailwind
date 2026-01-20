@@ -1,11 +1,12 @@
-// Vercel-style: process.env available during ng build (via Dockerfile ARG+ENV)
+// Platform env vars replace __VAR__ placeholders at build time
+// Fallback values used if no placeholder replacement occurs
 export const environment = {
   production: true,
-  apiUrl: process.env['API_URL'] || 'https://api.example.com',
-  appVersion: process.env['APP_VERSION'] || '1.0.0',
-  enableAnalytics: process.env['ENABLE_ANALYTICS'] === 'true',
+  apiUrl: '__API_URL__',
+  appVersion: '__APP_VERSION__',
+  enableAnalytics: ('__ENABLE_ANALYTICS__' as string) === 'true',
   featureFlags: {
-    darkMode: process.env['FEATURE_DARK_MODE'] === 'true',
-    newDashboard: process.env['FEATURE_NEW_DASHBOARD'] === 'true',
+    darkMode: ('__FEATURE_DARK_MODE__' as string) === 'true',
+    newDashboard: ('__FEATURE_NEW_DASHBOARD__' as string) === 'true',
   }
 };
